@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Bss_FAQ::menu" title="Bss FAQs" sortOrder="10">
+                    <resource id="Bss_FAQ::category" title="Category" sortOrder="50">
+                        <resource id="Bss_FAQ::category_crete" title="Create" sortOrder="100"/>
+                        <resource id="Bss_FAQ::category_delete" title="Delete" sortOrder="100"/>
+                        <resource id="Bss_FAQ::category_edit" title="Edit" sortOrder="100"/>
+                    </resource>
+                    <resource id="Bss_FAQ::question" title="Question" sortOrder="50">
+                        <resource id="Bss_FAQ::question_crete" title="Create" sortOrder="100"/>
+                        <resource id="Bss_FAQ::question_delete" title="Delete" sortOrder="100"/>
+                        <resource id="Bss_FAQ::question_edit" title="Edit" sortOrder="100"/>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

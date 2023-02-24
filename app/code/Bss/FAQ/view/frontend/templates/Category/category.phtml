@@ -1,0 +1,55 @@
+<?php /**
+ * @var Bss\FAQ\Block\Category\Index $block
+ */
+$categories = $block->getCategoryCollection(); ?>
+
+<div class="container">
+    <div class="category-container">
+        <?php foreach ($categories as $category): ?>
+            <div class="category-item">
+<!--                <img src="https://thumbs.dreamstime.com/b/demo-icon-demo-147077326.jpg" alt="Demo">-->
+                <img src="https://cdn-icons-png.flaticon.com/512/2784/2784586.png" alt="Demo">
+                <!--                https://cdn-icons-png.flaticon.com/512/2784/2784586.png-->
+                <p>
+                    <a href="<?= $block->getCategoryUrl($category->getCategoryId()) ?>">
+                        <?= $category->getTitle() ?>
+                    </a>
+                </p>
+            </div>
+        <?php endforeach; ?>
+    </div>
+    <div
+        class="list-container"
+        data-mage-init='{"accordion":{"openedState": "active", "collapsible": true, "active": false, "multipleCollapsible": false}}'>
+        <?php if (count($categories)) { ?>
+            <?php foreach ($categories as $category): ?>
+                <div data-role="collapsible">
+                    <div data-role="trigger" class="category">
+                        <p><?= $category->getTitle() ?></p>
+                    </div>
+                </div>
+                <div data-role="content" class="question-list">
+                    <?php
+                    $count = 0;
+                    $questions = $block->getQuestionCollection($category->getCategoryId());
+                    foreach ($questions as $question): ?>
+                        <div
+                            data-mage-init='{"accordion":{"openedState": "active", "collapsible": true, "active": false, "multipleCollapsible": false}}'>
+                            <div data-role="collapsible">
+                                <div data-role="trigger" class="question">
+                                    <p>Q<?= $count += 1 ?>: <?= $question->getQuestion() ?></p>
+                                </div>
+                            </div>
+                            <div data-role="content" class="answer">
+                                <p>A: <?= $question->getAnswer() ?></p>
+                                <a href="https://magento.test/faq/question/view/id/<?= $question->getQuestionId() ?>">
+                                    Read more >>
+                                </a>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php endforeach;
+        } ?>
+    </div>
+</div>

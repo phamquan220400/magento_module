@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Bss_FAQ::FAQ" title="FAQs" module="Bss_FAQ" sortOrder="51" resource="Bss_FAQ::FAQ"/>
+        <add id="Bss_FAQ::manage" title="Manage FAQs" module="Bss_FAQ" sortOrder="10" action="faq/question" parent="Bss_FAQ::FAQ" resource="Bss_FAQ::question"/>
+        <add id="Bss_FAQ::category" title="FAQ Categories" module="Bss_FAQ" sortOrder="99" action="faq/category" parent="Bss_FAQ::FAQ" resource="Bss_FAQ::category"/>
+    </menu>
+</config>

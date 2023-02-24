@@ -1,0 +1,36 @@
+<?php
+/**
+ * @var Bss\FAQ\Block\Category\CategoryView $block
+ */
+$questions = $block->getCategoryInfo();
+?>
+
+<div class="container">
+    <?php
+    if (count($questions)):?>
+        <div id="accordion" data-mage-init='{
+        "accordion":{
+            "active": [1, 2],
+            "collapsible": true,
+            "openedState": "active",
+            "multipleCollapsible": true
+        }}'>
+            <?php $count = 0 ?>
+            <?php foreach ($questions as $question): ?>
+                <div data-role="collapsible" class="question">
+                    <div data-role="trigger">
+                        <h4>Q<?= $count += 1 ?>: <?= $question->getQuestion() ?></h4>
+                    </div>
+                </div>
+                <div data-role="content" class="answer">
+                    <p>A: <?= $question->getAnswer() ?></p>
+                    <a href="https://magento.test/faq/question/view/id/<?= $question->getQuestionId() ?>">
+                        Read more >>
+                    </a>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    <?php else : ?>
+        <p><?= "This category do not have any question!" ?></p>
+    <?php endif; ?>
+</div>

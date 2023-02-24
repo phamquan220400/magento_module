@@ -1,0 +1,25 @@
+<?php
+/**
+ * @var Bss\FAQ\Block\Question\View $block
+ */
+
+$question = $block->getQuestionData();
+?>
+<?php foreach ($question as $data):?>
+    <div class="data-container">
+        <div class="question-container">
+            <div class="title">
+                <h2><?=$data->getQuestion()?></h2>
+            </div>
+            <div class="created-at">
+                <p>Created at: <span><?=$data->getCreatedAt()?></span></p>
+            </div>
+            <div class="created-by">
+                <p>Created by: <span><?=$data->getCreatedBy()?></span></p>
+            </div>
+        </div>
+        <div class="answer-container">
+            <h4><?=$data->getAnswer()?></h4>
+        </div>
+    </div>
+<?php endforeach;?>

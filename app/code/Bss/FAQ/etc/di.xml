@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="faq_category_listing_data_source" xsi:type="string">
+                    Bss\FAQ\Model\Collection\CategoryCollection
+                </item>
+                <item name="faq_question_listing_data_source" xsi:type="string">
+                    Bss\FAQ\Model\Collection\QuestionCollection
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Bss\FAQ\Model\Collection\CategoryCollection"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">category</argument>
+            <argument name="resourceModel" xsi:type="string">Bss\FAQ\Model\ResourceModel\Category
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Bss\FAQ\Model\Collection\QuestionCollection"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">question</argument>
+            <argument name="resourceModel" xsi:type="string">Bss\FAQ\Model\ResourceModel\Question
+            </argument>
+        </arguments>
+    </virtualType>
+    <preference for="Bss\FAQ\Api\CategoryRepositoryInterface"
+                type="Bss\FAQ\Model\CategoryRepository"/>
+    <preference for="Bss\FAQ\Api\QuestionRepositoryInterface"
+                type="Bss\FAQ\Model\QuestionRepository"/>
+    <preference for="Bss\FAQ\Api\Data\CategoryInterface"
+                type="Bss\FAQ\Model\Category"/>
+    <preference for="Bss\FAQ\Api\Data\QuestionInterface"
+                type="Bss\FAQ\Model\Question"/>
+</config>

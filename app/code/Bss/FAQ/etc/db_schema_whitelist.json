@@ -1,0 +1,40 @@
+{
+    "category": {
+        "column": {
+            "category_id": true,
+            "title": true,
+            "sort_order": true,
+            "created_at": true,
+            "enable": true,
+            "created_by": true,
+            "updated_at": true
+        },
+        "index": {
+            "CATEGORY_TITLE": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "question": {
+        "column": {
+            "question_id": true,
+            "content": true,
+            "question": true,
+            "answer": true,
+            "category_id": true,
+            "sort_order": true,
+            "created_at": true,
+            "enable": true,
+            "created_by": true,
+            "updated_at": true
+        },
+        "index": {
+            "QUESTION_QUESTION_ANSWER": true
+        },
+        "constraint": {
+            "QUESTION_CATEGORY_ID_CATEGORY_CATEGORY_ID": true,
+            "PRIMARY": true
+        }
+    }
+}

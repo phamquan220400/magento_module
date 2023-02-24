@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd"
+      layout="2columns-left">
+    <body>
+        <referenceContainer name="sidebar.main">
+            <block class="Bss\FAQ\Block\Category\CategoryViewSidebar" name="category-view_sidebar"
+                   template="Bss_FAQ::viewSidebar.phtml"
+                   before="-"/>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="Bss\FAQ\Block\Category\Index" name="search"
+                   template="Bss_FAQ::searchForm.phtml"/>
+            <block class="Bss\FAQ\Block\Category\CategoryView" name="category-view"
+                   template="Bss_FAQ::Category/categoryView.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,19 @@
+<?php
+/**
+ * @var Bss\FAQ\Block\Category\CategoryViewSidebar $block
+ */
+$categories = $block->getAllCategory();
+?>
+
+<div class="category-list">
+    <h3>
+        <a href="https://magento.test/faq/category">Category</a>
+    </h3>
+    <?php foreach ($categories as $category): ?>
+        <div class="category-list_item">
+            <a href="<?= $block->getCategoryUrl($category->getCategoryId()) ?>"><?= $category->getTitle(); ?></a>
+            (<?= $block->countQuestion($category->getCategoryId()) ?>)
+        </div>
+    <?php endforeach; ?>
+</div>
+
